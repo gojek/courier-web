@@ -1,14 +1,72 @@
-# @gojek/courier-web-sdk
+<a href="https://github.com/gojekfarm/courier-web/actions">
+	<img alt="Build Status" src="https://github.com/gojekfarm/courier-web/actions/workflows/build.yml/badge.svg" />
+</a>
+<a href="https://gojekfarm.github.io/courier-web/">
+	<img alt="Documentation" src="https://img.shields.io/badge/documentation-yes-brightgreen.svg" />
+</a>
+<a href="https://github.com/gojekfarm/courier-web/graphs/commit-activity">
+	<img alt="Maintenance" src="https://img.shields.io/badge/maintained-yes-green.svg" />
+</a>
+<a href="https://github.com/gojekfarm/courier-web/releases/latest">
+	<img alt="GitHub Release Date" src="https://img.shields.io/github/release-date/gojekfarm/courier-web" />
+</a>
+<a href="https://github.com/gojekfarm/courier-web/commits/main">
+	<img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/gojekfarm/courier-web" />
+</a>
 
-Robust MQTT Web SDK with automatic reconnection, subscription recovery, heartbeat monitoring, and optional React bindings.
+[![Discord : Gojek Courier](https://img.shields.io/badge/Discord-Gojek%20Courier-blue.svg)](https://discord.gg/C823qK4AK7)
 
-## Installation
+## About Courier Web
+
+Courier Web is a TypeScript SDK for creating robust, long-running connections using the MQTT protocol in web applications.
+
+Long running connection is a persistent connection established between client & server for instant bi-directional communication. A long running connection is maintained for maximum possible duration with the help of keep alive packets.
+
+MQTT is an extremely lightweight protocol which works on publish/subscribe messaging model. It is designed for connections with remote locations where a "small code footprint" is required or the network bandwidth is limited.
+
+The protocol usually runs over TCP/IP via WebSockets in the browser; however, any network protocol that provides ordered, lossless, bi-directional connections can support MQTT.
+
+MQTT has 3 built-in QoS levels for Reliable Message Delivery:
+
+* **QoS 0 (At most once)** - the message is sent only once and the client and broker take no additional steps to acknowledge delivery (fire and forget).
+
+* **QoS 1 (At least once)** - the message is re-tried by the sender multiple times until acknowledgement is received (acknowledged delivery).
+
+* **QoS 2 (Exactly once)** - the sender and receiver engage in a two-level handshake to ensure only one copy of the message is received (assured delivery).
+
+## Detailed Documentation
+
+Find the detailed documentation here - https://gojekfarm.github.io/courier-web/
+
+End-to-end courier example - https://gojek.github.io/courier/docs/Introduction
+
+## Features
+
+* Clean, simple API with callback and RxJS Observable support
+
+* Automatic Reconnection with subscription restoration
+
+* Heartbeat Monitoring with stale connection detection
+
+* Subscription Ledger with periodic broker-side audit
+
+* Exponential Backoff retry for auth and connection failures
+
+* Credential Persistence via cookie-based storage
+
+* Framework-agnostic core with optional React bindings
+
+* Full TypeScript support with comprehensive type definitions
+
+## Getting Started
+
+### Installation
 
 ```bash
 npm install @gojek/courier-web-sdk
 ```
 
-## Quick Start
+### Quick Start
 
 ```ts
 import { RealtimeClient } from "@gojek/courier-web-sdk";
@@ -36,7 +94,7 @@ client.onEnvelope("chat/room/42", (topic, data) => {
 await client.publish("chat/room/42", { text: "Hello!" });
 ```
 
-## React
+### React Usage
 
 ```tsx
 import { RealtimeClient } from "@gojek/courier-web-sdk";
@@ -72,165 +130,10 @@ function ChatRoom({ channelId }: { channelId: string }) {
 }
 ```
 
-## Configuration
+## Contribution Guidelines
 
-```ts
-new RealtimeClient({
-  // Required
-  endpoint: {
-    host: "broker.example.com",
-    port: 443,
-    scheme: "wss",           // "wss" (default) or "ws"
-    path: "/mqtt",           // WebSocket path if required
-    clientId: "my-client",
-    username: "user",
-    password: "token",
-    cleanSession: false,     // default false
-    keepAliveSeconds: 15,    // default 15
-  },
+Read our [contribution guide](./CONTRIBUTING.md) to learn about our development process, how to propose bugfixes and improvements, and how to build and test your changes to the Courier Web SDK.
 
-  // Optional - auto-recover from expired tokens
-  onAuthFailure: async () => {
-    const fresh = await myApi.refreshToken();
-    return { host: "...", port: 443, ...fresh };
-  },
+## License
 
-  // Optional - timing
-  reconnectInterval: 50,     // ms between reconnect attempts (default 50)
-  handshakeTimeout: 30000,   // ms to wait for CONNECT ack (default 30000)
-  heartbeatTimeout: 10000,   // ms to wait for PINGRESP (default 10000)
-
-  // Optional - retry backoff for credential fetches
-  retryBackoff: {
-    baseSeconds: 1,          // initial delay (default 1)
-    ceilSeconds: 60,         // max delay (default 60)
-  },
-
-  // Optional - periodic subscription audit
-  topicAudit: {
-    enabled: true,
-    intervalMs: 10000,       // default 10000
-  },
-});
-```
-
-## API
-
-### Connection
-
-| Method | Returns | Description |
-|--------|---------|-------------|
-| `connect()` | `Promise<void>` | Open the broker connection |
-| `disconnect()` | `Promise<void>` | Gracefully close |
-| `destroy()` | `Promise<void>` | Close and release all resources |
-| `isConnected()` | `boolean` | Is the link currently live? |
-| `getState()` | `LinkState` | Current state enum |
-
-### Subscribe / Unsubscribe
-
-| Method | Returns | Description |
-|--------|---------|-------------|
-| `subscribe(topic, qos?)` | `Promise<void>` | Subscribe (auto-restored on reconnect) |
-| `unsubscribe(topic)` | `Promise<void>` | Unsubscribe and stop tracking |
-| `getSubscribedTopics()` | `string[]` | List all tracked topics |
-
-### Publish
-
-| Method | Returns | Description |
-|--------|---------|-------------|
-| `publish(topic, payload, qos?)` | `Promise<void>` | Publish (objects auto-serialized to JSON) |
-
-### Callbacks
-
-All callback methods return an unsubscribe function.
-
-| Method | Callback Signature |
-|--------|-------------------|
-| `onEnvelope(handler)` | `(topic, data, raw) => void` |
-| `onEnvelope(topic, handler)` | `(topic, data, raw) => void` |
-| `onStateChange(handler)` | `(state: LinkState) => void` |
-| `onHeartbeatChange(handler)` | `(alive: boolean) => void` |
-| `onDiagnostic(handler)` | `(event: DiagnosticEvent) => void` |
-| `onDiagnostic(kind, handler)` | `(event: DiagnosticEvent) => void` |
-
-### RxJS Observables
-
-| Property | Type |
-|----------|------|
-| `envelopes$` | `Observable<Envelope>` |
-| `state$` | `Observable<LinkState>` |
-| `heartbeat$` | `Observable<boolean>` |
-| `diagnostics$` | `Observable<DiagnosticEvent>` |
-
-## React Hooks
-
-All hooks require a `<RealtimeScope>` ancestor.
-
-| Hook | Returns | Description |
-|------|---------|-------------|
-| `useLinkStatus()` | `{ linkState, heartbeatOk, isLive }` | Connection and heartbeat status |
-| `useTopicBind(topic)` | `{ bound, error }` | Declarative subscribe/unsubscribe |
-| `useInbox(topic, handler)` | `void` | Listen for messages on a topic |
-| `useRealtimeClient()` | `RealtimeClient` | Direct client access |
-
-## Enums
-
-### LinkState
-
-| Value | Meaning |
-|-------|---------|
-| `Live` | Connected and operational |
-| `Opening` | Handshake in progress |
-| `Closing` | Graceful disconnect in progress |
-| `Idle` | Not connected |
-| `Resuming` | Auto-reconnecting |
-
-### DeliveryMode
-
-| Value | QoS | Meaning |
-|-------|-----|---------|
-| `atMostOnce` (0) | 0 | Fire and forget |
-| `atLeastOnce` (1) | 1 | Acknowledged delivery |
-| `exactlyOnce` (2) | 2 | Exactly once delivery |
-
-## Utilities
-
-### BrowserVault
-
-Persist credentials across page reloads via cookies.
-
-```ts
-import { BrowserVault } from "@gojek/courier-web-sdk";
-
-const vault = new BrowserVault("myapp_", 30);
-vault.store({ host: "...", port: 443, clientId: "...", username: "...", password: "..." });
-const saved = vault.retrieve();
-vault.purge();
-```
-
-### RemoteCredentials
-
-Fetch tokens from an HTTP endpoint.
-
-```ts
-import { RemoteCredentials } from "@gojek/courier-web-sdk";
-
-const creds = new RemoteCredentials("https://api.example.com/mqtt/token", (res) => ({
-  host: res.broker.host,
-  port: res.broker.port,
-  username: res.userId,
-  password: res.jwt,
-  scheme: "wss",
-  path: "/mqtt",
-}));
-```
-
-## Automatic Behaviors
-
-| Scenario | SDK Behavior |
-|----------|-------------|
-| Network drops | Auto-reconnects, restores all subscriptions |
-| Token expires | Calls `onAuthFailure`, reconnects with fresh credentials |
-| Heartbeat timeout | Force-reconnects, restores subscriptions |
-| Subscribe fails | Queued in backlog, retried on next successful connection |
-| Subscription drift | Periodic audit detects and repairs missing subscriptions |
+Courier Web is [MIT Licensed](./LICENSE).
