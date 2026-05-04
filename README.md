@@ -63,13 +63,13 @@ End-to-end courier example - https://gojek.github.io/courier/docs/Introduction
 ### Installation
 
 ```bash
-npm install @gojek/courier-web-sdk
+npm install @armaanjain/courier-web-sdk
 ```
 
 ### Quick Start
 
 ```ts
-import { RealtimeClient } from "@gojek/courier-web-sdk";
+import { RealtimeClient } from "@armaanjain/courier-web-sdk";
 
 const client = new RealtimeClient({
   endpoint: {
@@ -97,13 +97,13 @@ await client.publish("chat/room/42", { text: "Hello!" });
 ### React Usage
 
 ```tsx
-import { RealtimeClient } from "@gojek/courier-web-sdk";
+import { RealtimeClient } from "@armaanjain/courier-web-sdk";
 import {
   RealtimeScope,
   useLinkStatus,
   useInbox,
   useTopicBind,
-} from "@gojek/courier-web-sdk/react";
+} from "@armaanjain/courier-web-sdk/react";
 
 const client = new RealtimeClient({ endpoint: { ... } });
 await client.connect();

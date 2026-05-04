@@ -34,9 +34,9 @@ client.envelopes$.pipe(filter(...), map(...)).subscribe(...);
 
 ## Framework Agnostic
 
-The core SDK (`@gojek/courier-web-sdk`) has zero framework dependencies. Use it with vanilla JS, Vue, Angular, Svelte, or any other framework.
+The core SDK (`@armaanjain/courier-web-sdk`) has zero framework dependencies. Use it with vanilla JS, Vue, Angular, Svelte, or any other framework.
 
-React bindings are provided as an optional subpath import (`@gojek/courier-web-sdk/react`).
+React bindings are provided as an optional subpath import (`@armaanjain/courier-web-sdk/react`).
 
 ## Full TypeScript Support
 

@@ -20,7 +20,7 @@ Subscriptions are managed by the `SubscriptionLedger` and will be automatically:
 ### With QoS
 
 ```ts
-import { DeliveryMode } from "@gojek/courier-web-sdk";
+import { DeliveryMode } from "@armaanjain/courier-web-sdk";
 
 await client.subscribe("my/topic", DeliveryMode.atLeastOnce);
 ```

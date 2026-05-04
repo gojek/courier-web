@@ -59,7 +59,7 @@ Multiple simultaneous auth refresh attempts are deduplicated automatically.
 For advanced use cases, use `RemoteCredentials` to fetch tokens from an HTTP endpoint:
 
 ```ts
-import { RemoteCredentials } from "@gojek/courier-web-sdk";
+import { RemoteCredentials } from "@armaanjain/courier-web-sdk";
 
 const creds = new RemoteCredentials(
   "https://api.example.com/mqtt/token",

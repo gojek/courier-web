@@ -13,7 +13,7 @@ sidebar_position: 8
 ### Usage
 
 ```ts
-import { BrowserVault } from "@gojek/courier-web-sdk";
+import { BrowserVault } from "@armaanjain/courier-web-sdk";
 
 const vault = new BrowserVault("myapp_", 30); // prefix, TTL in days
 ```

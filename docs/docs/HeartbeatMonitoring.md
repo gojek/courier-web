@@ -64,7 +64,7 @@ const healthy = client.isHeartbeatHealthy();
 ## React
 
 ```tsx
-import { useLinkStatus } from "@gojek/courier-web-sdk/react";
+import { useLinkStatus } from "@armaanjain/courier-web-sdk/react";
 
 function StatusIndicator() {
   const { isLive, heartbeatOk } = useLinkStatus();

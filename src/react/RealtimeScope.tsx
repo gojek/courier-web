@@ -14,8 +14,8 @@ export interface RealtimeScopeProps {
  *
  * @example
  * ```tsx
- * import { RealtimeClient } from "@gojek/courier-web-sdk";
- * import { RealtimeScope } from "@gojek/courier-web-sdk/react";
+ * import { RealtimeClient } from "@armaanjain/courier-web-sdk";
+ * import { RealtimeScope } from "@armaanjain/courier-web-sdk/react";
  *
  * const client = new RealtimeClient({ ... });
  * await client.connect();

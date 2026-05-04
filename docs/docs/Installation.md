@@ -14,7 +14,7 @@ sidebar_position: 2
 ## Install
 
 ```bash
-npm install @gojek/courier-web-sdk
+npm install @armaanjain/courier-web-sdk
 ```
 
 ## Peer Dependencies
@@ -31,8 +31,8 @@ The package ships two entry points:
 
 | Import | Contents |
 |--------|----------|
-| `@gojek/courier-web-sdk` | Core SDK (framework-agnostic) |
-| `@gojek/courier-web-sdk/react` | React bindings (hooks + context provider) |
+| `@armaanjain/courier-web-sdk` | Core SDK (framework-agnostic) |
+| `@armaanjain/courier-web-sdk/react` | React bindings (hooks + context provider) |
 
 ## Module Formats
 

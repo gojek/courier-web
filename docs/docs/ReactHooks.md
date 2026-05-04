@@ -11,8 +11,8 @@ sidebar_position: 14
 Wrap your application with `RealtimeScope` to provide the client to all hooks:
 
 ```tsx
-import { RealtimeClient } from "@gojek/courier-web-sdk";
-import { RealtimeScope } from "@gojek/courier-web-sdk/react";
+import { RealtimeClient } from "@armaanjain/courier-web-sdk";
+import { RealtimeScope } from "@armaanjain/courier-web-sdk/react";
 
 const client = new RealtimeClient({ endpoint: { ... } });
 await client.connect();
@@ -31,7 +31,7 @@ function App() {
 Track connection state and heartbeat health:
 
 ```tsx
-import { useLinkStatus } from "@gojek/courier-web-sdk/react";
+import { useLinkStatus } from "@armaanjain/courier-web-sdk/react";
 
 function ConnectionBadge() {
   const { linkState, heartbeatOk, isLive } = useLinkStatus();
@@ -59,7 +59,7 @@ function ConnectionBadge() {
 Declaratively subscribe to a topic. Subscribes on mount, unsubscribes on unmount. The subscription is tracked by the ledger and survives reconnections.
 
 ```tsx
-import { useTopicBind } from "@gojek/courier-web-sdk/react";
+import { useTopicBind } from "@armaanjain/courier-web-sdk/react";
 
 function ChatRoom({ roomId }: { roomId: string }) {
   const { bound, error } = useTopicBind(`chat/room/${roomId}`);
@@ -88,7 +88,7 @@ const { bound } = useTopicBind(isReady ? `chat/room/${roomId}` : null);
 Listen for messages on a topic (or all topics):
 
 ```tsx
-import { useInbox } from "@gojek/courier-web-sdk/react";
+import { useInbox } from "@armaanjain/courier-web-sdk/react";
 
 function MessageLog({ roomId }: { roomId: string }) {
   const [messages, setMessages] = useState<any[]>([]);
@@ -120,7 +120,7 @@ useInbox((topic, data) => {
 Direct access to the `RealtimeClient` instance:
 
 ```tsx
-import { useRealtimeClient } from "@gojek/courier-web-sdk/react";
+import { useRealtimeClient } from "@armaanjain/courier-web-sdk/react";
 
 function PublishButton() {
   const client = useRealtimeClient();
@@ -136,14 +136,14 @@ function PublishButton() {
 ## Complete Example
 
 ```tsx
-import { RealtimeClient, DeliveryMode } from "@gojek/courier-web-sdk";
+import { RealtimeClient, DeliveryMode } from "@armaanjain/courier-web-sdk";
 import {
   RealtimeScope,
   useLinkStatus,
   useTopicBind,
   useInbox,
   useRealtimeClient,
-} from "@gojek/courier-web-sdk/react";
+} from "@armaanjain/courier-web-sdk/react";
 import { useState } from "react";
 
 const client = new RealtimeClient({

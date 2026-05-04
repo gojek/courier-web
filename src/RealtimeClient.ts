@@ -29,7 +29,7 @@ const enc = new TextEncoder();
  *
  * @example
  * ```ts
- * import { RealtimeClient } from "@gojek/courier-web-sdk";
+ * import { RealtimeClient } from "@armaanjain/courier-web-sdk";
  *
  * const rt = new RealtimeClient({
  *   endpoint: { host: "broker.example.com", port: 443, scheme: "wss",

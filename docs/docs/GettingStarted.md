@@ -11,7 +11,7 @@ This guide walks you through a minimal setup to connect, subscribe, publish, and
 ## 1. Create a Client
 
 ```ts
-import { RealtimeClient } from "@gojek/courier-web-sdk";
+import { RealtimeClient } from "@armaanjain/courier-web-sdk";
 
 const client = new RealtimeClient({
   endpoint: {

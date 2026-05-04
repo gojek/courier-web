@@ -1,6 +1,6 @@
 {
-  "name": "@gojek/courier-web-sdk",
-  "version": "0.1.1",
+  "name": "@armaanjain/courier-web-sdk",
+  "version": "0.1.2",
   "description": "Robust MQTT Web SDK with automatic reconnection, subscription recovery, heartbeat monitoring, and optional React bindings.",
   "author": "Gojek",
   "license": "MIT",

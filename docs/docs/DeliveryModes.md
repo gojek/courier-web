@@ -11,7 +11,7 @@ sidebar_position: 13
 MQTT defines three Quality of Service levels that control message delivery guarantees. The SDK exposes these as the `DeliveryMode` enum.
 
 ```ts
-import { DeliveryMode } from "@gojek/courier-web-sdk";
+import { DeliveryMode } from "@armaanjain/courier-web-sdk";
 ```
 
 ## Levels
