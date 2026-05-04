@@ -2,7 +2,7 @@
 id: Introduction
 title: Introduction
 sidebar_position: 1
-slug: /Introduction
+slug: /
 ---
 
 # Courier Web SDK

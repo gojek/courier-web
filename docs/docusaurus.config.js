@@ -23,6 +23,7 @@ const config = {
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
+          routeBasePath: "/",
           sidebarPath: require.resolve("./sidebars.js"),
           editUrl: "https://github.com/gojek/courier-web/tree/main/docs/",
         },
@@ -76,9 +77,9 @@ const config = {
           {
             title: "Docs",
             items: [
-              { label: "Introduction", to: "/docs/Introduction" },
-              { label: "Getting Started", to: "/docs/Installation" },
-              { label: "React Hooks", to: "/docs/ReactHooks" },
+              { label: "Introduction", to: "/" },
+              { label: "Getting Started", to: "/Installation" },
+              { label: "React Hooks", to: "/ReactHooks" },
             ],
           },
           {
