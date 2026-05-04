@@ -4,11 +4,11 @@
 const config = {
   title: "Courier Web",
   tagline: "Robust MQTT Web SDK",
-  url: "https://gojekfarm.github.io",
+  url: "https://gojek.github.io",
   baseUrl: "/courier-web/",
   onBrokenLinks: "throw",
   favicon: "img/favicon.ico",
-  organizationName: "gojekfarm",
+  organizationName: "gojek",
   projectName: "courier-web",
 
   markdown: {
@@ -23,9 +23,8 @@ const config = {
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
-          routeBasePath: "/",
           sidebarPath: require.resolve("./sidebars.js"),
-          editUrl: "https://github.com/gojekfarm/courier-web/tree/main/docs/",
+          editUrl: "https://github.com/gojek/courier-web/tree/main/docs/",
         },
         blog: false,
         theme: {
@@ -65,7 +64,7 @@ const config = {
             position: "right",
           },
           {
-            href: "https://github.com/gojekfarm/courier-web",
+            href: "https://github.com/gojek/courier-web",
             label: "GitHub",
             position: "right",
           },
@@ -77,9 +76,9 @@ const config = {
           {
             title: "Docs",
             items: [
-              { label: "Introduction", to: "/Introduction" },
-              { label: "Getting Started", to: "/Installation" },
-              { label: "React Hooks", to: "/ReactHooks" },
+              { label: "Introduction", to: "/docs/Introduction" },
+              { label: "Getting Started", to: "/docs/Installation" },
+              { label: "React Hooks", to: "/docs/ReactHooks" },
             ],
           },
           {
@@ -91,7 +90,7 @@ const config = {
               },
               {
                 label: "GitHub",
-                href: "https://github.com/gojekfarm/courier-web",
+                href: "https://github.com/gojek/courier-web",
               },
             ],
           },

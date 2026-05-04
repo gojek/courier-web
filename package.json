@@ -6,7 +6,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/gojekfarm/courier-web.git"
+    "url": "https://github.com/gojek/courier-web.git"
   },
   "type": "module",
   "main": "./dist/index.cjs",

@@ -1,17 +1,17 @@
-<a href="https://github.com/gojekfarm/courier-web/actions">
-	<img alt="Build Status" src="https://github.com/gojekfarm/courier-web/actions/workflows/build.yml/badge.svg" />
+<a href="https://github.com/gojek/courier-web/actions">
+	<img alt="Build Status" src="https://github.com/gojek/courier-web/actions/workflows/build.yml/badge.svg" />
 </a>
-<a href="https://gojekfarm.github.io/courier-web/">
+<a href="https://gojek.github.io/courier-web/">
 	<img alt="Documentation" src="https://img.shields.io/badge/documentation-yes-brightgreen.svg" />
 </a>
-<a href="https://github.com/gojekfarm/courier-web/graphs/commit-activity">
+<a href="https://github.com/gojek/courier-web/graphs/commit-activity">
 	<img alt="Maintenance" src="https://img.shields.io/badge/maintained-yes-green.svg" />
 </a>
-<a href="https://github.com/gojekfarm/courier-web/releases/latest">
-	<img alt="GitHub Release Date" src="https://img.shields.io/github/release-date/gojekfarm/courier-web" />
+<a href="https://github.com/gojek/courier-web/releases/latest">
+	<img alt="GitHub Release Date" src="https://img.shields.io/github/release-date/gojek/courier-web" />
 </a>
-<a href="https://github.com/gojekfarm/courier-web/commits/main">
-	<img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/gojekfarm/courier-web" />
+<a href="https://github.com/gojek/courier-web/commits/main">
+	<img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/gojek/courier-web" />
 </a>
 
 [![Discord : Gojek Courier](https://img.shields.io/badge/Discord-Gojek%20Courier-blue.svg)](https://discord.gg/C823qK4AK7)
@@ -36,7 +36,7 @@ MQTT has 3 built-in QoS levels for Reliable Message Delivery:
 
 ## Detailed Documentation
 
-Find the detailed documentation here - https://gojekfarm.github.io/courier-web/
+Find the detailed documentation here - https://gojek.github.io/courier-web/
 
 End-to-end courier example - https://gojek.github.io/courier/docs/Introduction
 

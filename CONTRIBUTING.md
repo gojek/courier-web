@@ -60,9 +60,9 @@ Much Thanks!
 
 GO-JEK Tech
 
-[1]: https://github.com/gojekfarm/courier-web
+[1]: https://github.com/gojek/courier-web
 [2]: https://opensource.org/licenses/MIT
-[3]: https://github.com/gojekfarm/courier-web/issues
+[3]: https://github.com/gojek/courier-web/issues
 [4]: https://prettier.io/
 [5]: https://eslint.org/
 [6]: http://gun.io/blog/how-to-github-fork-branch-and-pull-request
