@@ -7,10 +7,15 @@ const config = {
   url: "https://gojekfarm.github.io",
   baseUrl: "/courier-web/",
   onBrokenLinks: "throw",
-  onBrokenMarkdownLinks: "warn",
   favicon: "img/favicon.ico",
   organizationName: "gojekfarm",
   projectName: "courier-web",
+
+  markdown: {
+    hooks: {
+      onBrokenMarkdownLinks: "warn",
+    },
+  },
 
   presets: [
     [
@@ -18,9 +23,11 @@ const config = {
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
+          routeBasePath: "/",
           sidebarPath: require.resolve("./sidebars.js"),
           editUrl: "https://github.com/gojekfarm/courier-web/tree/main/docs/",
         },
+        blog: false,
         theme: {
           customCss: require.resolve("./src/css/custom.css"),
         },
@@ -70,9 +77,9 @@ const config = {
           {
             title: "Docs",
             items: [
-              { label: "Introduction", to: "/docs/Introduction" },
-              { label: "Getting Started", to: "/docs/Installation" },
-              { label: "React Hooks", to: "/docs/ReactHooks" },
+              { label: "Introduction", to: "/Introduction" },
+              { label: "Getting Started", to: "/Installation" },
+              { label: "React Hooks", to: "/ReactHooks" },
             ],
           },
           {
